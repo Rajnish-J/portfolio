@@ -1,0 +1,165 @@
+
+
+Rajnish J
+Chennai, Tamil Nadu, India
+rajnishofficial02@gmail.com | +91-91769-60600
+GitHub | LinkedIn | Portfolio
+Professional Summary
+Software Engineer specializing in AI-powered enterprise platforms, developer productivity, infrastructure automa-
+tion, and intelligent workflow orchestration.  Experienced in designing scalable full-stack applications using Python,
+FastAPI, Next.js, React, Azure AI, OpenTofu/Terraform, LLMs, RAG, and multi-agent architectures.  Strong back-
+ground in enterprise platform engineering, AI-assisted software development, RBAC, system design, and developer
+experience.
+Technical Skills
+Languages:  Java, Python, TypeScript, JavaScript, Go
+Frontend:  React.js, Next.js, Tailwind CSS
+Backend:  FastAPI, Spring Boot, REST APIs, WebSockets, Microservices
+AI: Azure AI Foundry, Azure OpenAI, LangChain, LangGraph, RAG, MCP, AI SDK, Claude Code, GitHub Copilot,
+Prompt Engineering, AI Agents
+Infrastructure:  OpenTofu, Terraform, GitHub Actions
+Database:  PostgreSQL, MySQL, NeonDB
+Architecture:  RBAC, Authentication, Authorization, Caching, Multi-Tenant Systems, System Design
+Professional Experience
+Synergech Technologies, Chennai
+Software EngineerMay 2025 – Present
+Product: InfraGenie Suite — Enterprise Cloud Governance & Automation Platform
+Stack:  Next.js, PostgreSQL, FastAPI, AI-SDK, Claude Code, OpenTofu/Terraform, Azure, ServiceNow
+InfraGenie (Internal Enterprise Platform)
+• Situation:  Repository provisioning, access approvals,  and cloud cost oversight were handled manually across
+the organization, slowing DevOps delivery and creating governance gaps across Prod/Dev/QA environments.
+• Task:  Design  a  single  platform  unifying  provisioning,  access  governance,  ticketing,  and  cost  control  for  four
+distinct roles — platform team, end users, management, and DevOps engineers.
+• Action: Built an in-house RBAC & ABAC engine, an access-package request and ticketing system, OpenTofu/Terraform-
+based  provisioning  pipelines,  ServiceNow  integration,  environment-scoped  workspaces,  and  cost-management
+dashboards enforcing per-resource-group budget thresholds, using FastAPI, Next.js, and PostgreSQL.
+• Reward:  Cut organizational cloud spend by ∼50%, reduced access-provisioning turnaround time by ∼80%,
+and automated CI/CD pipeline governance for all onboarded teams.
+InfraZero (Public Beta Platform)
+• Situation: No public-facing, lightweight equivalent of InfraGenie existed for external users who needed simplified
+infrastructure provisioning without full enterprise overhead.
+• Task:  Ship  a  public  beta  carrying  forward  core  InfraGenie  capabilities  —  chat-driven  project  workflows  and
+RBAC/ABAC — through a phased, version-by-version rollout.
+• Action: Re-architected the provisioning workflow and access-control layer into a leaner public product, iterating
+feature parity release by release.
+• Reward:  Delivered a functioning public beta with a clear version-wise feature-parity roadmap, extending plat-
+form reach beyond internal enterprise users.
+Infra Landing Platform
+• Situation:   InfraZero  had  no  external-facing  channel  to  communicate  its  features,  pricing,  or  workflows  to
+prospective users.
+• Task:  Build a marketing landing site that converts visitors into signups by clearly showcasing product value.
+• Action:  Designed  and  developed  a  responsive  landing  website  covering  feature  highlights,  pricing  tiers,  and
+workflow walkthroughs;  produced supporting LinkedIn marketing content and a recorded product demo video
+for go-to-market.
+
+• Reward:  Established the primary acquisition and marketing entry point for the public product launch.
+Infra Documentation Platform
+• Situation:  Public users lacked a self-service resource to learn or troubleshoot the platform, increasing support
+dependency.
+• Task:  Deliver a documentation portal supporting search, multilingual access, and AI-assisted content help.
+• Action:  Built  a  documentation  portal  with  Markdown  rendering,  full-text  search,  multilingual  support,  and
+AI-assisted documentation generation.
+• Reward:  Improved user self-service and onboarding, reducing inbound support load for the public product.
+Product: Agent Orchestration & Analytics Platform (Agents Marketplace)
+Stack:  Next.js, Python, PostgreSQL, VS Code Extension API, Claude Code, Azure AI Foundry
+Claude Code Analytics & Marketplace Platform
+• Situation:  Leadership had no visibility into Claude Code, GitHub Copilot, and Codex seat usage or developer
+productivity, and teams had no centralized way to reuse AI skills/agents across the organization.
+• Task: Build an analytics and governance layer giving management usage insight while enabling org-wide, version-
+controlled agent/skill reuse.
+• Action:  Built  a  usage-upload  and  insights  engine,  a  Skills  &  Agents  Marketplace  with  fork  mechanism  and
+version  control,  seat-allocation  management,  live  and  historical  dashboards,  org-wide  RBAC,  and  Azure  AI
+Foundry agent-registry integration.
+• Reward:  Gave leadership real-time visibility into AI-tool adoption and developer productivity, enabling data-
+driven seat reallocation across 100% of onboarded teams.
+Workflow Orchestration (Business Users)
+• Situation:  Business teams had no no-code way to chain Azure AI Foundry agents into repeatable, multi-step
+workflows.
+• Task:  Build an orchestration engine letting non-developers create, pull from marketplace, and run agent-based
+workflows.
+• Action:  Implemented  a  no-code  workflow  builder,  execution  engine,  monitoring,  and  orchestration  pipelines
+connecting marketplace and Foundry agents; work is now extending into agent evaluation and governance.
+• Reward:  Enabled business users to automate multi-step tasks end-to-end without engineering support.
+VS Code Extension (Developer SDLC)
+• Situation: Developers lacked an equivalent agent-orchestration capability embedded in their IDE for build–develop–deploy
+workflows.
+• Task:  Deliver a VS Code extension enabling in-IDE creation and execution of AI-driven SDLC workflows.
+• Action:  Built  an  extension  supporting  agent  install/pull,  configurable  workflow-driven  code  generation,  and
+orchestrator-triggered automation across the SDLC.
+• Reward: Reduced developer context-switching and standardized AI-assisted automation directly inside the IDE.
+Autonomous Testing Platform
+• Situation: QA work was split across manual task tracking and separate API-testing tools, with no collaborative,
+AI-assisted testing workspace.
+• Task:  Build a unified workspace combining project/task management with autonomous, AI-driven test execu-
+tion.
+• Action:  Developed  collaborative  Kanban-based  workspaces  and  integrated  Playwright  MCP,  Postman  MCP,
+and AI chat agents for autonomous UI/API test authoring and execution.
+• Reward:  Consolidated test planning and execution into a single AI-assisted workspace,  cutting manual test-
+authoring effort.
+Project: RiskGuard AI (Client Project) — AI-Assisted Underwriting Platform
+Stack:  Python (FastAPI), React.js, PostgreSQL, Azure AI Foundry, Azure AI Search, Azure Content Understanding,
+Claude Code, GitHub Copilot
+Document-Driven Underwriting Automation
+
+• Situation:  Underwriters manually reviewed applicant documents and researched risk context before approving
+or denying insurance claims, taking anywhere from half a day to over two days per case.
+• Task:  Build  a  human-in-the-loop  (HITL)  system  that  automates  document  verification,  contextual  research,
+and decision support while keeping underwriters in control of the final call.
+• Action: Built a document-processing pipeline on Azure AI Search and Azure Content Understanding, integrated
+automated web research for supporting insights, and developed a React-based workspace with multi-document
+project versioning for underwriters.
+• Reward:  Reduced typical review time from up to 2 days to as little as ∼15 minutes, with edge cases capped
+at ∼1 hour — a time reduction of roughly 90–98%.
+Software Engineer InternFeb 2025 – Apr 2025
+•  Built AI-assisted document processing, workflow automation, and backend integrations.
+•  Worked on enterprise proof-of-concepts involving AI, APIs, and scalable applications.
+Graduate Engineer TraineeAug 2024 – Jan 2025
+•  Developed Spring Boot and React applications with REST APIs.
+•  Strengthened backend, database, and system architecture fundamentals.
+AI-Assisted Software Engineering
+•  Advanced user of Claude Code and GitHub Copilot for enterprise software development.
+•  Experienced  with  Agent  Mode,  Edit  Mode,  Planning  Mode,  approval  workflows,  and  AI-driven  development
+practices.
+•  Integrated reusable Claude Skills and AI Agents into engineering workflows.
+•  Built AI-assisted workflows for development, documentation, testing, Git operations, commits, and pull requests.
+•  Selected appropriate AI models based on reasoning complexity, speed, and context requirements.
+•  Experienced with MCP integrations, AI SDKs, RAG pipelines, and enterprise agent workflows.
+Leadership & Technical Contributions
+•  Led Next.js architecture migration and established reusable project structure.
+•  Conducted internal knowledge sharing on Next.js, AI SDKs and AI development practices.
+•  Participated in client demos, solution presentations and architecture discussions.
+•  Contributed to coding standards, reusable architecture and developer productivity initiatives.
+Personal Projects
+useApiGuard — Next.js, TypeScript, React
+•  Designed and published a reusable React hook to standardize API communication across applications.
+•  Simplified API handling by centralizing loading states, error handling, request lifecycle management, and response
+processing.
+•  Open-sourced the package with comprehensive documentation and real-world implementation examples.
+•  Published as an NPM package for reuse across multiple React and Next.js projects.
+Hospify – Hospital Management System — Spring Boot, React.js, MySQL
+•  Developed a comprehensive hospital management platform supporting patients, doctors, hospitals, and admin-
+istrative workflows.
+•  Built modules for patient registration, doctor management, appointment scheduling, and hospital administration.
+•  Implemented seamless appointment booking with doctor availability management and scheduling workflows.
+•  Designed medicine management and prescription tracking modules to streamline healthcare operations.
+•  Developed RESTful APIs using Spring Boot and integrated them with a responsive React.js frontend.
+•  Designed relational database schemas and managed source control using Git and GitHub.
+Task Manager — Next.js, TypeScript, PostgreSQL
+•  Bootstrapped and architected a personal productivity platform using Next.js for managing learning,  projects,
+certifications, career goals, and daily tasks.
+•  Designed  interactive  dashboards  with  progress  tracking,  activity  timelines,  Kanban  boards,  and  productivity
+
+analytics.
+•  Built modules for project management, team collaboration, certification tracking, roadmap planning, and career
+progression.
+•  Planned as an open-source productivity platform with self-hosting support, allowing individuals and teams to
+manage tasks and workflows free of cost.
+•  Focused on scalable architecture, reusable components, and extensible design for future community contributions.
+Achievements
+•  Emerging Star Award – Synergech (2025)
+Certifications & Courses
+•  Claude Code in Action – Anthropic
+•  Building with the Claude API – Anthropic
+•  Introduction to Model Context Protocol – Anthropic
+•  Model Context Protocol:  Advanced Topics – Anthropic
+•  Introduction to Agent Skills
+•  Microsoft Certified:  Azure AI Engineer Associate (AI-102) – Preparing
