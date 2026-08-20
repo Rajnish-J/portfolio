@@ -17,10 +17,13 @@ export function ScrollToTop() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  /* The button is fixed bottom-left and would otherwise sit on top of the footer, which is
+  /* The button is fixed bottom-right and would otherwise sit on top of the footer, which is
      why the footer used to carry extra bottom padding. Hiding it here keeps the footer tight.
      Re-run per route: each page renders its own footer, and /journey has none. */
   useEffect(() => {
+    // Reset for routes with no footer (e.g. /journey) — not derivable without the DOM query
+    // below, and the observer this sets up only fires once a footer element exists.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setAtFooter(false)
     const footer = document.querySelector('footer.footer')
     if (!footer) return

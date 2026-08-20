@@ -14,6 +14,7 @@ export const navItems = [
   { label: 'Toolkit', href: '/#toolkit' },
   { label: 'Journey', href: '/journey' },
   { label: 'Writing', href: '/blog' },
+  { label: 'GitHub', href: '/github' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -23,6 +24,7 @@ function routeLabel(pathname: string) {
   if (pathname.startsWith('/work') || pathname.startsWith('/projects')) return 'Work'
   if (pathname.startsWith('/journey')) return 'Journey'
   if (pathname.startsWith('/blog')) return 'Writing'
+  if (pathname.startsWith('/github')) return 'GitHub'
   if (pathname.startsWith('/contact')) return 'Contact'
   return ''
 }

@@ -5,7 +5,11 @@ import { DocumentDownload } from '@/components/document-download'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { FloatingRole, Toolkit, TypewriterHeadline } from '@/components/portfolio-enhancements'
-import { projects } from '@/lib/portfolio-data'
+import { GithubStatGrid } from '@/components/github-stat-grid'
+import { RecentRepos } from '@/components/recent-repos'
+import { DotGrid } from '@/components/dot-grid'
+import { projects, contactInfo } from '@/lib/portfolio-data'
+import { getGithubDashboard } from '@/lib/github'
 
 const journey = [
   [
@@ -30,12 +34,14 @@ const journey = [
   ],
 ]
 
-export default function Page() {
+export default async function Page() {
+  const githubStats = await getGithubDashboard('Rajnish-J')
   return (
     <main>
       <SiteHeader variant="home" />
 
       <section id="top" className="hero section-wrap">
+        <DotGrid dotSize={2.5} gap={26} />
         <div className="hero-copy reveal">
           <p className="eyebrow">
             <span className="status-dot" /> Available for thoughtful work
@@ -196,6 +202,40 @@ export default function Page() {
           </p>
         </div>
         <Toolkit />
+      </section>
+
+      <section id="github" className="section-wrap section-block">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Open source</p>
+            <h2>
+              Still
+              <br />
+              <em>shipping.</em>
+            </h2>
+          </div>
+          <p className="section-intro">
+            A live pull from {contactInfo.githubHandle} — the public slice of what I build.
+          </p>
+        </div>
+        {githubStats ? (
+          <>
+            <GithubStatGrid stats={githubStats} />
+            {githubStats.recentRepos.length > 0 && (
+              <RecentRepos repos={githubStats.recentRepos.slice(0, 3)} compact />
+            )}
+            <a className="text-link github-cta" href="/github">
+              See the full dashboard <ArrowUpRight size={16} />
+            </a>
+          </>
+        ) : (
+          <p className="section-intro">
+            Stats aren&apos;t connected yet.{' '}
+            <a className="text-link" href={contactInfo.githubUrl} target="_blank" rel="noreferrer">
+              View the profile directly <ArrowUpRight size={16} />
+            </a>
+          </p>
+        )}
       </section>
 
       <section id="journey" className="section-wrap section-block journey">

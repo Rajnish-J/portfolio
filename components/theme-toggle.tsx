@@ -1,21 +1,29 @@
 'use client'
 
 import { Moon, Sun } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
+
+function subscribe(onChange: () => void) {
+  const observer = new MutationObserver(onChange)
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+  return () => observer.disconnect()
+}
+
+function getSnapshot() {
+  return document.documentElement.classList.contains('dark')
+}
+
+function getServerSnapshot() {
+  return false
+}
 
 export function ThemeToggle() {
-  const [dark, setDark] = useState(false)
-
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains('dark')
-    setDark(isDark)
-  }, [])
+  const dark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
   function toggleTheme() {
     const next = !dark
     document.documentElement.classList.toggle('dark', next)
     localStorage.setItem('theme', next ? 'dark' : 'light')
-    setDark(next)
   }
 
   return (

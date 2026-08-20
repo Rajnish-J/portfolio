@@ -1309,6 +1309,9 @@ export function JourneyScene() {
   /* Theme, viewport and motion preference all come from the document — read after mount
      so SSR emits the transcript only and hydration never mismatches. */
   useEffect(() => {
+    // Mount gate: SSR must emit the plain transcript only, and there's no pure-render way to
+    // know "has the client hydrated yet" — this is the standard hydration-safe pattern.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
     const root = document.documentElement
     const sync = () => setDark(root.classList.contains('dark'))

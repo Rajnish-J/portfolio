@@ -97,18 +97,19 @@ export function TypewriterHeadline() {
   const [phraseIndex, setPhraseIndex] = useState(0)
   const [text, setText] = useState('')
   const [deleting, setDeleting] = useState(false)
-  const [paused, setPaused] = useState(false)
+  const phrase = PHRASES[phraseIndex]
+  const paused = !deleting && text === phrase
   useEffect(() => {
-    const phrase = PHRASES[phraseIndex]
     if (!deleting && text === phrase) {
-      setPaused(true)
       const hold = window.setTimeout(() => {
-        setPaused(false)
         setDeleting(true)
       }, 1200)
       return () => window.clearTimeout(hold)
     }
     if (deleting && text === '') {
+      // Timer-driven state transition (advance to the next phrase), not a derivable value —
+      // there's no pure computation for "should we start typing the next phrase now".
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDeleting(false)
       setPhraseIndex((index) => (index + 1) % PHRASES.length)
       return
@@ -118,7 +119,7 @@ export function TypewriterHeadline() {
       deleting ? 48 : 86,
     )
     return () => window.clearTimeout(timer)
-  }, [deleting, phraseIndex, text])
+  }, [deleting, phrase, phraseIndex, text])
   return (
     <h1>
       I build digital
