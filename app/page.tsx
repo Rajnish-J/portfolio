@@ -7,7 +7,6 @@ import { SiteFooter } from '@/components/site-footer'
 import { FloatingRole, Toolkit, TypewriterHeadline } from '@/components/portfolio-enhancements'
 import { GithubStatGrid } from '@/components/github-stat-grid'
 import { RecentRepos } from '@/components/recent-repos'
-import { DotGrid } from '@/components/dot-grid'
 import { projects, contactInfo } from '@/lib/portfolio-data'
 import { getGithubDashboard } from '@/lib/github'
 
@@ -41,7 +40,6 @@ export default async function Page() {
       <SiteHeader variant="home" />
 
       <section id="top" className="hero section-wrap">
-        <DotGrid dotSize={2.5} gap={26} />
         <div className="hero-copy reveal">
           <p className="eyebrow">
             <span className="status-dot" /> Available for thoughtful work

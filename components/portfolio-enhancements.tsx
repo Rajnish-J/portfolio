@@ -122,7 +122,7 @@ export function TypewriterHeadline() {
   }, [deleting, phrase, phraseIndex, text])
   return (
     <h1>
-      I build digital
+      I build 
       <br />
       <em className="typewriter-word">
         {text}

@@ -47,7 +47,7 @@ export default async function GithubPage() {
             <GithubStatGrid stats={stats} />
           </section>
 
-          <section className="section-wrap section-block">
+          <section className="section-wrap section-block-tight">
             <div className="section-heading">
               <div>
                 <p className="eyebrow">Activity</p>
@@ -61,50 +61,50 @@ export default async function GithubPage() {
                 Commits, pull requests, reviews, and issues across every repo I&apos;ve touched.
               </p>
             </div>
-            <div className="activity-strip">
-              <div>
+            <div className="activity-grid">
+              <div className="github-stat-card">
                 <p className="github-stat-value">{stats.activity.commits}</p>
                 <p className="github-stat-label">Commits</p>
               </div>
-              <div>
+              <div className="github-stat-card">
                 <p className="github-stat-value">{stats.activity.pullRequests}</p>
                 <p className="github-stat-label">Pull requests</p>
               </div>
-              <div>
+              <div className="github-stat-card">
                 <p className="github-stat-value">{stats.activity.issues}</p>
                 <p className="github-stat-label">Issues</p>
               </div>
-              <div>
+              <div className="github-stat-card">
                 <p className="github-stat-value">{stats.activity.reviews}</p>
                 <p className="github-stat-label">Reviews</p>
               </div>
-              <div>
+              <div className="github-stat-card">
                 <p className="github-stat-value">{stats.activity.repositoriesContributedTo}</p>
                 <p className="github-stat-label">Repos touched</p>
               </div>
             </div>
+
+            {stats.recentRepos.length > 0 && (
+              <>
+                <div className="section-heading">
+                  <div>
+                    <p className="eyebrow">Right now</p>
+                    <h2>
+                      Actively
+                      <br />
+                      <em>working on.</em>
+                    </h2>
+                  </div>
+                  <p className="section-intro">
+                    Repos with the most commits in the last 12 months, most recent first.
+                  </p>
+                </div>
+                <RecentRepos repos={stats.recentRepos} />
+              </>
+            )}
           </section>
 
-          {stats.recentRepos.length > 0 && (
-            <section className="section-wrap section-block">
-              <div className="section-heading">
-                <div>
-                  <p className="eyebrow">Right now</p>
-                  <h2>
-                    Actively
-                    <br />
-                    <em>working on.</em>
-                  </h2>
-                </div>
-                <p className="section-intro">
-                  Repos with the most commits in the last 12 months, most recent first.
-                </p>
-              </div>
-              <RecentRepos repos={stats.recentRepos} />
-            </section>
-          )}
-
-          <section className="section-wrap section-block">
+          <section className="section-wrap section-block-tight">
             <div className="section-heading">
               <div>
                 <p className="eyebrow">Contribution heatmap</p>
@@ -123,7 +123,7 @@ export default async function GithubPage() {
             <ContributionHeatmap weeks={stats.weeks} />
           </section>
 
-          <section className="section-wrap section-block">
+          <section className="section-wrap section-block-tight">
             <div className="section-heading">
               <div>
                 <p className="eyebrow">Languages</p>
@@ -140,7 +140,7 @@ export default async function GithubPage() {
             <LanguageBar languages={stats.languages} />
           </section>
 
-          <section className="section-wrap section-block">
+          <section className="section-wrap section-block-tight">
             <div className="section-heading">
               <div>
                 <p className="eyebrow">Featured</p>
@@ -163,7 +163,7 @@ export default async function GithubPage() {
           </section>
         </>
       ) : (
-        <section className="section-wrap section-block">
+        <section className="section-wrap section-block-tight">
           <p className="section-intro">
             GitHub stats aren&apos;t available right now.{' '}
             <a className="text-link" href={contactInfo.githubUrl} target="_blank" rel="noreferrer">

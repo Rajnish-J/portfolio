@@ -4,6 +4,7 @@ import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { BackLink } from '@/components/back-link'
 import { posts } from '@/lib/portfolio-data'
+import { BlogFilter } from '@/components/blog-filter'
 
 export const metadata = {
   title: 'Writing — Rajnish J',
@@ -26,20 +27,8 @@ export default function BlogPage() {
           developer tools feel more human.
         </p>
       </section>
-      <section className="section-wrap posts-list">
-        {posts.map((post, index) => (
-          <Link className="post-row" href={`/blog/${post.slug}`} key={post.slug}>
-            <span className="post-number">{String(index + 1).padStart(2, '0')}</span>
-            <div>
-              <p className="project-kind">
-                {post.category} · {post.date}
-              </p>
-              <h2>{post.title}</h2>
-              <p>{post.excerpt}</p>
-            </div>
-            <ArrowUpRight size={19} />
-          </Link>
-        ))}
+      <section className="section-wrap">
+        <BlogFilter posts={posts} />
       </section>
       <SiteFooter>
         <Link href="/">

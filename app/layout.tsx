@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { ThemeBootstrap } from '@/components/theme-bootstrap'
 import { ScrollToTop } from '@/components/scroll-to-top'
+import { DotGrid } from '@/components/dot-grid'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -45,6 +46,7 @@ export default function RootLayout({
     <html lang="en" className="bg-background" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeBootstrap />
+        <DotGrid />
         {children}
         <ScrollToTop />
         {process.env.NODE_ENV === 'production' && <Analytics />}

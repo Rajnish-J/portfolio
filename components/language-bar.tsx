@@ -21,6 +21,29 @@ export function LanguageBar({ languages }: { languages: LanguageStat[] }) {
           </span>
         ))}
       </div>
+      <div className="data-table-wrap">
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Language</th>
+              <th scope="col">Share</th>
+            </tr>
+          </thead>
+          <tbody>
+            {languages.map((language) => (
+              <tr key={language.name}>
+                <td>
+                  <span className="github-lang-mini-row">
+                    <span className="language-dot" style={{ background: language.color }} />
+                    {language.name}
+                  </span>
+                </td>
+                <td>{Math.round(language.percent)}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
