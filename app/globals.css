@@ -130,7 +130,7 @@ a {
    is portalled to <body> since a position:fixed panel breaks under a GSAP-transformed
    ancestor (e.g. the /journey page's header transform). */
 .sm-toggle {
-  display: inline-flex;
+  display: none;
   align-items: center;
   padding: 0;
   border: 0;
@@ -2446,6 +2446,9 @@ h2 em {
   }
   .main-nav {
     display: none;
+  }
+  .sm-toggle {
+    display: inline-flex;
   }
   /* Three flex children survive here (wordmark, actions, menu toggle); without this,
      space-between parks the actions block in the middle of the header. */

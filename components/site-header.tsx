@@ -103,6 +103,12 @@ export function SiteHeader({ variant = 'subpage' }: { variant?: 'home' | 'subpag
       </div>
       <StaggeredMenu
         ref={menuRef}
+        items={navItems.map((item) => ({
+          label: item.label,
+          ariaLabel: `Go to ${item.label}`,
+          link: item.href,
+          active: active === item.label,
+        }))}
         socialItems={menuSocialItems}
         onMenuOpen={() => setMenuOpen(true)}
         onMenuClose={() => setMenuOpen(false)}
