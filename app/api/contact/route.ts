@@ -1,7 +1,8 @@
 import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
+import { contactInfo } from '@/lib/portfolio-data'
 
-const recipient = 'rajnishofficial02@gmail.com'
+const recipient = contactInfo.email
 
 export async function POST(request: Request) {
   try {

@@ -51,7 +51,7 @@ export default async function Page() {
           </p>
           <div className="hero-actions">
             <DocumentDownload />
-            <a className="text-link" href="mailto:rajnishofficial02@gmail.com">
+            <a className="text-link" href={`mailto:${contactInfo.email}`}>
               Get in touch <ArrowUpRight size={16} />
             </a>
           </div>
@@ -178,7 +178,7 @@ export default async function Page() {
             AI-powered workflow orchestration. I care about clean abstractions, useful interfaces,
             and the small details that help teams move with confidence.
           </p>
-          <a className="text-link" href="mailto:rajnishofficial02@gmail.com">
+          <a className="text-link" href={`mailto:${contactInfo.email}`}>
             Start a conversation <ArrowUpRight size={16} />
           </a>
         </div>

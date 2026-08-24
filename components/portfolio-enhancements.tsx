@@ -13,6 +13,7 @@ import {
   Wrench,
 } from 'lucide-react'
 import type { IconType } from 'react-icons'
+import { contactInfo } from '@/lib/portfolio-data'
 import {
   SiDocker,
   SiFastapi,
@@ -38,8 +39,8 @@ import {
 } from 'react-icons/si'
 
 export const socialLinks = [
-  ['LinkedIn', 'https://linkedin.com/in/rajnish7102', 'in', Send],
-  ['GitHub', 'https://github.com/Rajnish-J', 'gh', GitBranch],
+  ['LinkedIn', contactInfo.linkedinUrl, 'in', Send],
+  ['GitHub', contactInfo.githubUrl, 'gh', GitBranch],
   ['Instagram', 'https://instagram.com/_rajnish_07', 'ig', null],
   ['LeetCode', 'https://leetcode.com/u/Rajnish_2002', 'lc', Code2],
   ['X', 'https://x.com/RAJNISH65432447', 'x', Send],
@@ -122,7 +123,7 @@ export function TypewriterHeadline() {
   }, [deleting, phrase, phraseIndex, text])
   return (
     <h1>
-      I build 
+      I build
       <br />
       <em className="typewriter-word">
         {text}
