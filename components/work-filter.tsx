@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import type { Project } from '@/lib/portfolio-data'
+import { TracingBeam } from '@/components/ui/tracing-beam'
 
 export function WorkFilter({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<'all' | 'personal' | 'professional'>('all')
@@ -20,45 +21,51 @@ export function WorkFilter({ projects }: { projects: Project[] }) {
             className={filter === item ? 'active' : ''}
             onClick={() => setFilter(item)}
           >
-            {item === 'all' ? 'All work' : item === 'personal' ? 'Personal' : 'Professional'}
+            {item === 'all'
+              ? 'All work'
+              : item === 'personal'
+                ? 'Personal Projects'
+                : 'Office Work'}
           </button>
         ))}
       </div>
-      <div className="case-list">
-        {visible.map((project) => (
-          <article className="case-study" key={project.slug} id={project.slug}>
-            <div className="case-index">{project.number}</div>
-            <div className="case-content">
-              <p className="project-kind">{project.kind}</p>
-              <h2>{project.title}</h2>
-              <p className="case-summary">{project.summary}</p>
-              <div className="case-columns">
-                <div>
-                  <p className="eyebrow">Overview</p>
-                  <p>{project.overview}</p>
+      <TracingBeam className="max-w-none">
+        <div className="case-list">
+          {visible.map((project) => (
+            <article className="case-study" key={project.slug} id={project.slug}>
+              <div className="case-index">{project.number}</div>
+              <div className="case-content">
+                <p className="project-kind">{project.kind}</p>
+                <h2>{project.title}</h2>
+                <p className="case-summary">{project.summary}</p>
+                <div className="case-columns">
+                  <div>
+                    <p className="eyebrow">Overview</p>
+                    <p>{project.overview}</p>
+                  </div>
+                  <div>
+                    <p className="eyebrow">My contribution</p>
+                    <ul>
+                      {project.contributions.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <div>
-                  <p className="eyebrow">My contribution</p>
-                  <ul>
-                    {project.contributions.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+                <div className="case-bottom">
+                  <p>
+                    <strong>Outcome</strong>
+                    {project.impact}
+                  </p>
+                  <Link className="text-link" href={`/projects/${project.slug}`}>
+                    Open project <ArrowUpRight size={15} />
+                  </Link>
                 </div>
               </div>
-              <div className="case-bottom">
-                <p>
-                  <strong>Outcome</strong>
-                  {project.impact}
-                </p>
-                <Link className="text-link" href={`/projects/${project.slug}`}>
-                  Open project <ArrowUpRight size={15} />
-                </Link>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
+            </article>
+          ))}
+        </div>
+      </TracingBeam>
     </>
   )
 }

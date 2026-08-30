@@ -24,8 +24,8 @@ export default function WorkPage() {
           <em>real work.</em>
         </h1>
         <p className="subpage-lede">
-          A closer look at the platforms, workflows, and product decisions behind the work I have
-          contributed to at Synergech.
+          A closer look at the platforms I&apos;ve shipped at Synergech and the systems I&apos;ve
+          built on my own — office work and personal projects, side by side.
         </p>
       </section>
       <section className="section-wrap">
