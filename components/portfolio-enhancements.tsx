@@ -6,30 +6,31 @@ import {
   Brain,
   Cloud,
   Code2,
+  Database,
   GitBranch,
   LayoutGrid,
   Send,
   Server,
-  Wrench,
+  ShieldCheck,
 } from 'lucide-react'
 import type { IconType } from 'react-icons'
 import { contactInfo } from '@/lib/portfolio-data'
 import {
+  SiClaude,
   SiDocker,
   SiFastapi,
-  SiFigma,
   SiGit,
   SiGithubactions,
-  SiHtml5,
-  SiJira,
+  SiGithubcopilot,
+  SiGo,
+  SiJavascript,
   SiLangchain,
   SiLanggraph,
-  SiLinux,
+  SiMysql,
+  SiNeon,
   SiNextdotjs,
-  SiNotion,
   SiOpentofu,
   SiPostgresql,
-  SiPostman,
   SiPython,
   SiReact,
   SiSpringboot,
@@ -161,16 +162,25 @@ function SkillBadge({ icon }: { icon: IconType | string }) {
 export function Toolkit() {
   const groups = [
     [
-      'AI',
-      'Building intelligent, agentic workflows',
-      Brain,
+      'Languages',
+      'The building blocks, day to day',
+      Code2,
       [
-        ['Azure AI', 3, 'AI'],
-        ['Azure OpenAI', 3, 'AO'],
-        ['LangChain', 2, SiLangchain],
-        ['LangGraph', 2, SiLanggraph],
-        ['RAG', 3, 'RA'],
-        ['MCP', 2, 'MC'],
+        ['Python', 3, SiPython],
+        ['TypeScript', 3, SiTypescript],
+        ['JavaScript', 2, SiJavascript],
+        ['Java', 2, 'JA'],
+        ['Go', 1, SiGo],
+      ],
+    ],
+    [
+      'Frontend',
+      'Interfaces people actually enjoy using',
+      LayoutGrid,
+      [
+        ['React.js', 3, SiReact],
+        ['Next.js', 3, SiNextdotjs],
+        ['Tailwind CSS', 3, SiTailwindcss],
       ],
     ],
     [
@@ -178,25 +188,29 @@ export function Toolkit() {
       'Designing systems that last',
       Server,
       [
-        ['Python', 3, SiPython],
         ['FastAPI', 3, SiFastapi],
-        ['Java', 2, 'JA'],
         ['Spring Boot', 2, SiSpringboot],
-        ['PostgreSQL', 2, SiPostgresql],
         ['REST APIs', 3, 'RS'],
+        ['WebSockets', 1, 'WS'],
+        ['Microservices', 2, 'MS'],
       ],
     ],
     [
-      'Product',
-      'Across web and developer surfaces',
-      LayoutGrid,
+      'AI',
+      'Building intelligent, agentic workflows',
+      Brain,
       [
-        ['React', 3, SiReact],
-        ['Next.js', 3, SiNextdotjs],
-        ['TypeScript', 2, SiTypescript],
-        ['Tailwind', 2, SiTailwindcss],
-        ['WebSockets', 1, 'WS'],
-        ['HTML/CSS', 3, SiHtml5],
+        ['Azure AI Foundry', 3, 'AI'],
+        ['Azure OpenAI', 3, 'AO'],
+        ['LangChain', 2, SiLangchain],
+        ['LangGraph', 2, SiLanggraph],
+        ['RAG', 3, 'RA'],
+        ['MCP', 2, 'MC'],
+        ['AI SDK', 2, 'SD'],
+        ['Claude Code', 3, SiClaude],
+        ['GitHub Copilot', 2, SiGithubcopilot],
+        ['Prompt Engineering', 3, 'PE'],
+        ['AI Agents', 3, 'AG'],
       ],
     ],
     [
@@ -204,25 +218,34 @@ export function Toolkit() {
       'Shipping it and keeping it healthy',
       Cloud,
       [
-        ['Azure', 2, 'AZ'],
-        ['OpenTofu', 2, SiOpentofu],
+        ['OpenTofu', 3, SiOpentofu],
         ['Terraform', 2, SiTerraform],
-        ['Docker', 2, SiDocker],
         ['GitHub Actions', 2, SiGithubactions],
+        ['Docker', 2, SiDocker],
         ['Git', 3, SiGit],
       ],
     ],
     [
-      'Tools',
-      'The day-to-day workbench',
-      Wrench,
+      'Database',
+      'Where the state actually lives',
+      Database,
       [
-        ['VS Code', 3, 'VS'],
-        ['Postman', 3, SiPostman],
-        ['Linux', 2, SiLinux],
-        ['Figma', 1, SiFigma],
-        ['Jira', 2, SiJira],
-        ['Notion', 2, SiNotion],
+        ['PostgreSQL', 3, SiPostgresql],
+        ['MySQL', 2, SiMysql],
+        ['NeonDB', 2, SiNeon],
+      ],
+    ],
+    [
+      'Architecture',
+      'The patterns that hold enterprise systems together',
+      ShieldCheck,
+      [
+        ['RBAC', 3, 'RB'],
+        ['Authentication', 3, 'AU'],
+        ['Authorization', 2, 'AZ'],
+        ['Caching', 2, 'CA'],
+        ['Multi-Tenant Systems', 2, 'MT'],
+        ['System Design', 3, 'SY'],
       ],
     ],
   ] as const
@@ -238,11 +261,14 @@ export function Toolkit() {
       <div className="toolkit-grid">
         {groups.map(([title, description, Icon, items], index) => (
           <article className={`toolkit-card toolkit-${index}`} key={title}>
-            <div className="toolkit-icon">
-              <Icon size={18} />
+            <Icon className="toolkit-watermark" aria-hidden="true" />
+            <div className="toolkit-card-header">
+              <div className="toolkit-icon">
+                <Icon size={18} />
+              </div>
+              <h3>{title}</h3>
+              <p>{description}</p>
             </div>
-            <h3>{title}</h3>
-            <p>{description}</p>
             <div className="tool-pills">
               {items.map(([item, tier, icon]) => (
                 <span key={item} title={`${item} — ${TIERS[tier]}`}>
