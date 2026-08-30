@@ -5,33 +5,11 @@ import { DocumentDownload } from '@/components/document-download'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { FloatingRole, Toolkit, TypewriterHeadline } from '@/components/portfolio-enhancements'
+import { HomeWorkFilter } from '@/components/home-work-filter'
 import { GithubStatGrid } from '@/components/github-stat-grid'
 import { RecentRepos } from '@/components/recent-repos'
-import { projects, contactInfo } from '@/lib/portfolio-data'
+import { projects, journey, achievements, certifications, contactInfo } from '@/lib/portfolio-data'
 import { getGithubDashboard } from '@/lib/github'
-
-const journey = [
-  [
-    'May 2025 — now',
-    'Software Engineer',
-    'Promoted at Synergech Technologies. Building enterprise platforms, agentic workflows, and AI-assisted products.',
-  ],
-  [
-    'Feb 2025 — Apr 2025',
-    'Software Engineer Intern',
-    'Built document processing, workflow automation, and backend integrations for enterprise proof-of-concepts.',
-  ],
-  [
-    'Aug 2024 — Jan 2025',
-    'Graduate Engineer Trainee',
-    'Developed Spring Boot and React applications while sharpening systems and architecture fundamentals.',
-  ],
-  [
-    '2020 — 2024',
-    'Engineering journey',
-    'Studied Electronics & Communication Engineering at Panimalar Engineering College. CGPA: 8.78.',
-  ],
-]
 
 export default async function Page() {
   const githubStats = await getGithubDashboard('Rajnish-J')
@@ -46,8 +24,10 @@ export default async function Page() {
           </p>
           <TypewriterHeadline />
           <p className="hero-lede">
-            I&apos;m Rajnish, an AI engineer shaping AI-powered platforms, developer tools, and
-            infrastructure workflows that make complex work feel simple.
+            I&apos;m Rajnish, a Software Engineer specializing in AI-powered enterprise platforms,
+            developer productivity, infrastructure automation, and intelligent workflow
+            orchestration — using Python, FastAPI, Next.js, React, Azure AI, and multi-agent
+            architectures.
           </p>
           <div className="hero-actions">
             <DocumentDownload />
@@ -108,28 +88,7 @@ export default async function Page() {
             engineering that holds up under pressure.
           </p>
         </div>
-        <div className="project-list">
-          {projects.map((project) => (
-            <a className="project-row" key={project.slug} href={`/projects/${project.slug}`}>
-              <span className="project-number">{project.number}</span>
-              <div className="project-main">
-                <p className="project-kind">{project.kind}</p>
-                <h3>{project.title}</h3>
-                <p>{project.summary}</p>
-                <div className="tag-list">
-                  {project.stack.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="project-impact">
-                <p className="eyebrow">Outcome</p>
-                <p>{project.impact}</p>
-                <ArrowUpRight size={19} />
-              </div>
-            </a>
-          ))}
-        </div>
+        <HomeWorkFilter projects={projects} />
       </section>
 
       <section className="status-band">
@@ -145,7 +104,10 @@ export default async function Page() {
           <div className="status-items">
             <div>
               <span className="status-index">01</span>
-              <p>Building AI-assisted enterprise software at Synergech Technologies.</p>
+              <p>
+                Building the Enterprise AI Platform and Agents Marketplace at Synergech
+                Technologies.
+              </p>
             </div>
             <div>
               <span className="status-index">02</span>
@@ -175,8 +137,15 @@ export default async function Page() {
           </p>
           <p>
             My work spans full-stack applications, cloud governance, infrastructure automation, and
-            AI-powered workflow orchestration. I care about clean abstractions, useful interfaces,
-            and the small details that help teams move with confidence.
+            AI-powered workflow orchestration — designing scalable systems with Python, FastAPI,
+            Next.js, React, Azure AI, OpenTofu/Terraform, LLMs, RAG, and multi-agent architectures,
+            with a strong background in RBAC, system design, and developer experience.
+          </p>
+          <p>
+            I&apos;m an advanced user of Claude Code and GitHub Copilot in enterprise settings —
+            Agent Mode, Edit Mode, Planning Mode, and approval-based AI-driven development workflows
+            for building, documenting, testing, and reviewing code — and I pick the right model for
+            the job based on reasoning complexity, speed, and context requirements.
           </p>
           <a className="text-link" href={`mailto:${contactInfo.email}`}>
             Start a conversation <ArrowUpRight size={16} />
@@ -252,15 +221,61 @@ export default async function Page() {
           </p>
         </div>
         <div className="timeline">
-          {journey.map(([date, role, description]) => (
-            <div className="timeline-row" key={date}>
-              <span>{date}</span>
+          {journey.map((item) => (
+            <div className="timeline-row" key={item.id}>
+              <span>{item.date}</span>
               <div>
-                <h3>{role}</h3>
-                <p>{description}</p>
+                <h3>{item.role}</h3>
+                <p>{item.summary}</p>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="credentials" className="section-wrap section-block credentials">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Recognition</p>
+            <h2>
+              Achievements
+              <br />
+              <em>& certifications.</em>
+            </h2>
+          </div>
+          <p className="section-intro">
+            A few markers along the way — recognition at work and continued learning through
+            structured courses.
+          </p>
+        </div>
+        <div className="credentials-grid">
+          <div className="credential-card">
+            <p className="eyebrow">Achievements</p>
+            <ul className="credential-list">
+              {achievements.map((item) => (
+                <li key={item.title}>
+                  <span>{item.title}</span>
+                  <span className="credential-meta">
+                    {item.org} · {item.date}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="credential-card">
+            <p className="eyebrow">Certifications & courses</p>
+            <ul className="credential-list">
+              {certifications.map((item) => (
+                <li key={item.title}>
+                  <span>{item.title}</span>
+                  <span className="credential-meta">
+                    {item.issuer}
+                    {'status' in item && item.status ? ` · ${item.status}` : ''}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
