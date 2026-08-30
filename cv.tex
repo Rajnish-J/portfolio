@@ -1,0 +1,284 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[a4paper,margin=0.65in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{xcolor}
+
+\setstretch{1.05}
+\pagestyle{empty}
+\definecolor{sectiongray}{RGB}{80,80,80}
+\definecolor{dividercolor}{RGB}{200,200,200}
+
+\titleformat{\section}{\large\bfseries\color{sectiongray}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{5pt}
+
+% Bullet points: add space between items and between title and first item
+\setlist[itemize]{leftmargin=1.5em,itemsep=2pt,topsep=3pt,parsep=0pt,partopsep=0pt}
+
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+% Light gray divider line between projects
+\newcommand{\projectdivider}{\vspace{4pt}\textcolor{dividercolor}{\hrule height 0.4pt}\vspace{4pt}}
+
+% Project title: bold name + tech stack on same line, small gap before bullets
+\newcommand{\projecttitle}[2]{\noindent\textbf{#1} \textit{#2}\par\vspace{1pt}}
+
+% Experience sub-heading
+\newcommand{\expblock}[1]{\noindent\textbf{#1}\par\vspace{1pt}}
+\newcommand{\expsubblock}[1]{\noindent\textit{#1}\par\vspace{1pt}}
+
+\begin{document}
+
+%-------------------- Header --------------------
+\begin{center}
+{\LARGE\textbf{Rajnish J}}\\[3pt]
+Chennai, Tamil Nadu, India\\[1pt]
+\href{mailto:rajnishofficial02@gmail.com}{rajnishofficial02@gmail.com} $|$
++91-91769-60600\\[1pt]
+\href{https://github.com/Rajnish-J}{GitHub} $|$
+\href{https://www.linkedin.com/in/rajnish7102/}{LinkedIn} $|$
+\href{https://rajnish7102.netlify.app/}{Portfolio}
+\end{center}
+
+%-------------------- Professional Summary --------------------
+\section*{Professional Summary}
+Software Engineer specializing in AI-powered enterprise platforms, developer productivity, infrastructure automation, and intelligent workflow orchestration. Experienced in designing scalable full-stack applications using Python, FastAPI, Next.js, React, Azure AI, OpenTofu/Terraform, LLMs, RAG, and multi-agent architectures. Strong background in enterprise platform engineering, AI-assisted software development, RBAC, system design, and developer experience.
+
+%-------------------- Technical Skills --------------------
+\section*{Technical Skills}
+\textbf{Languages:} Java, Python, TypeScript, JavaScript, Go\\
+\textbf{Frontend:} React.js, Next.js, Tailwind CSS\\
+\textbf{Backend:} FastAPI, Spring Boot, REST APIs, WebSockets, Microservices\\
+\textbf{AI:} Azure AI Foundry, Azure OpenAI, LangChain, LangGraph, RAG, MCP, AI SDK, Claude Code, GitHub Copilot, Prompt Engineering, AI Agents\\
+\textbf{Infrastructure:} OpenTofu, Terraform, GitHub Actions\\
+\textbf{Database:} PostgreSQL, MySQL, NeonDB\\
+\textbf{Architecture:} RBAC, Authentication, Authorization, Caching, Multi-Tenant Systems, System Design
+
+%============================================================
+% PROFESSIONAL EXPERIENCE — RESTRUCTURED (PRODUCT / PROJECT / STAR)
+% Assumes \expblock{}, \expsubblock{}, \projectdivider are already
+% defined in your preamble (as in the original resume).
+%============================================================
+\section*{Professional Experience}
+
+\noindent\textbf{Synergech Technologies, Chennai}\\
+\textbf{Software Engineer} \hfill May 2025 -- Present
+
+%------------------------------------------------------------
+% PRODUCT 1: INFRAGENIE SUITE
+%------------------------------------------------------------
+\vspace{6pt}
+\noindent\textbf{Product: \href{https://infragenie.synergech.com/auth/sign-in}{InfraGenie} Suite — Enterprise Cloud Governance \& Automation Platform}\\
+\textit{Stack: Next.js, PostgreSQL, FastAPI, AI-SDK, Claude Code, OpenTofu/Terraform, Azure, ServiceNow}
+
+\vspace{4pt}
+\expblock{InfraGenie (Internal Enterprise Platform)}
+\begin{itemize}
+\item \textbf{Situation:} Repository provisioning, access approvals, and cloud cost oversight were handled manually across the organization, slowing DevOps delivery and creating governance gaps across Prod/Dev/QA environments.
+\item \textbf{Task:} Design a single platform unifying provisioning, access governance, ticketing, and cost control for four distinct roles — platform team, end users, management, and DevOps engineers.
+\item \textbf{Action:} Built an in-house RBAC \& ABAC engine, an access-package request and ticketing system, a prompt-driven OpenTofu/Terraform code-generation engine that lets DevOps engineers describe a requirement in natural language instead of consulting ChatGPT or internal documentation and have infrastructure generated and deployed directly to Azure, ServiceNow integration, environment-scoped workspaces, Intune policy management, and cost-management dashboards enforcing per-resource-group budget thresholds, using FastAPI, Next.js, and PostgreSQL.
+\item \textbf{Reward:} Cut organizational cloud/billing spend by \textbf{$\sim$70\%}, reduced access-provisioning turnaround time by \textbf{$\sim$80\%}, and automated CI/CD pipeline governance for all onboarded teams.
+\end{itemize}
+
+\projectdivider
+
+\expblock{\href{https://infra0.ai/}{infra0} (Public SaaS Platform)}
+\begin{itemize}
+\item \textbf{Situation:} No public-facing, lightweight equivalent of InfraGenie existed for external users who needed simplified infrastructure provisioning without full enterprise overhead.
+\item \textbf{Task:} Ship a public SaaS beta carrying forward core InfraGenie capabilities — chat-driven project workflows and RBAC/ABAC — with certain enterprise-only features restricted, through a phased, version-by-version rollout.
+\item \textbf{Action:} Re-architected the provisioning workflow and access-control layer into a leaner public product, gating enterprise-specific capabilities (e.g. ServiceNow integration, org-wide cost governance) behind the internal tier and iterating public feature parity release by release.
+\item \textbf{Reward:} Delivered a functioning public beta with a clear version-wise feature-parity roadmap, extending platform reach beyond internal enterprise users.
+\end{itemize}
+
+\projectdivider
+
+\expblock{Infra Landing Platform}
+\begin{itemize}
+\item \textbf{Situation:} infra0 had no external-facing channel to communicate its features, pricing, or workflows to prospective users.
+\item \textbf{Task:} Build a marketing landing site that converts visitors into signups by clearly showcasing product value.
+\item \textbf{Action:} Designed and developed a responsive landing website covering feature highlights, pricing tiers, and workflow walkthroughs; produced supporting LinkedIn marketing content and a recorded product demo video for go-to-market.
+\item \textbf{Reward:} Established the primary acquisition and marketing entry point for the public product launch.
+\end{itemize}
+
+\projectdivider
+
+\expblock{Infra Documentation Platform}
+\begin{itemize}
+\item \textbf{Situation:} Public users lacked a self-service resource to learn or troubleshoot the platform, increasing support dependency.
+\item \textbf{Task:} Deliver a documentation portal supporting search, multilingual access, and AI-assisted content help.
+\item \textbf{Action:} Built a documentation portal with Markdown rendering, full-text search, multilingual support, and AI-assisted documentation generation.
+\item \textbf{Reward:} Improved user self-service and onboarding, reducing inbound support load for the public product.
+\end{itemize}
+
+%------------------------------------------------------------
+% PRODUCT 2: AGENTIC WORKFLOW ORCHESTRATION & ANALYTICS PLATFORM
+%------------------------------------------------------------
+\vspace{10pt}
+\noindent\textbf{Product: Agent Orchestration \& Analytics Platform (Agents Marketplace)}\\
+\textit{Stack: Next.js, Python, PostgreSQL, VS Code Extension API, Claude Code, Azure AI Foundry}
+
+\vspace{4pt}
+\expblock{Claude Code Analytics \& Marketplace Platform}
+\begin{itemize}
+\item \textbf{Situation:} Leadership had no visibility into Claude Code, GitHub Copilot, and Codex seat usage or developer productivity, and teams had no centralized way to reuse AI skills/agents across the organization.
+\item \textbf{Task:} Build an analytics and governance layer giving management usage insight while enabling org-wide, version-controlled agent/skill reuse.
+\item \textbf{Action:} Built a usage-upload and insights engine, a Skills \& Agents Marketplace with fork mechanism and version control, seat-allocation management, live and historical dashboards, org-wide RBAC, and Azure AI Foundry agent-registry integration.
+\item \textbf{Reward:} Gave leadership real-time visibility into AI-tool adoption and developer productivity, enabling data-driven seat reallocation across \textbf{100\%} of onboarded teams.
+\end{itemize}
+
+\vspace{4pt}
+\expsubblock{Workflow Orchestration (Business Users)}
+\begin{itemize}
+\item \textbf{Situation:} Business teams had no no-code way to chain Azure AI Foundry agents into repeatable, multi-step workflows.
+\item \textbf{Task:} Build an orchestration engine letting non-developers create, pull from marketplace, and run agent-based workflows.
+\item \textbf{Action:} Implemented a no-code workflow builder, execution engine, monitoring, and orchestration pipelines connecting marketplace and Foundry agents; work is now extending into agent evaluation and governance.
+\item \textbf{Reward:} Enabled business users to automate multi-step tasks end-to-end without engineering support.
+\end{itemize}
+
+\vspace{4pt}
+\expsubblock{VS Code Extension (Developer SDLC)}
+\begin{itemize}
+\item \textbf{Situation:} Developers lacked an equivalent agent-orchestration capability embedded in their IDE for build–develop–deploy workflows.
+\item \textbf{Task:} Deliver a VS Code extension enabling in-IDE creation and execution of AI-driven SDLC workflows.
+\item \textbf{Action:} Built an extension supporting agent install/pull, configurable workflow-driven code generation, and orchestrator-triggered automation across the SDLC.
+\item \textbf{Reward:} Reduced developer context-switching and standardized AI-assisted automation directly inside the IDE.
+\end{itemize}
+
+\projectdivider
+
+\expblock{Autonomous Testing Platform}
+\begin{itemize}
+\item \textbf{Situation:} QA work was split across manual task tracking and separate API-testing tools, with no collaborative, AI-assisted testing workspace.
+\item \textbf{Task:} Build a unified workspace combining project/task management with autonomous, AI-driven test execution.
+\item \textbf{Action:} Developed collaborative Kanban-based workspaces and integrated Playwright MCP, Postman MCP, and AI chat agents for autonomous UI/API test authoring and execution.
+\item \textbf{Reward:} Consolidated test planning and execution into a single AI-assisted workspace, cutting manual test-authoring effort.
+\end{itemize}
+
+%------------------------------------------------------------
+% PRODUCT 3: RISKGUARD AI (CLIENT PROJECT)
+%------------------------------------------------------------
+\vspace{10pt}
+\noindent\textbf{Project: RiskGuard AI (Client Project) — AI-Assisted Underwriting Platform}\\
+\textit{Stack: Python (FastAPI), React.js, PostgreSQL, Azure AI Foundry, Azure AI Search, Azure Content Understanding, Claude Code, GitHub Copilot}
+
+\vspace{4pt}
+\expblock{Document-Driven Underwriting Automation}
+\begin{itemize}
+\item \textbf{Situation:} Underwriters manually reviewed applicant documents and researched risk context before approving or denying insurance claims, taking anywhere from half a day to over two days per case.
+\item \textbf{Task:} Build a human-in-the-loop (HITL) system that automates document verification, contextual research, and decision support while keeping underwriters in control of the final call.
+\item \textbf{Action:} Built a document-processing pipeline on Azure AI Search and Azure Content Understanding, integrated automated web research for supporting insights, and developed a React-based workspace with multi-document project versioning for underwriters.
+\item \textbf{Reward:} Reduced typical review time from up to \textbf{2 days} to as little as \textbf{$\sim$15 minutes}, with edge cases capped at $\sim$1 hour — a time reduction of roughly \textbf{90--98\%}.
+\end{itemize}
+
+%------------------------------------------------------------
+% EARLIER ROLES
+%------------------------------------------------------------
+\vspace{10pt}
+\noindent\textbf{Software Engineer Intern} \hfill Feb 2025 -- Apr 2025
+\begin{itemize}
+\item Built AI-assisted document processing, workflow automation, and backend integrations.
+\item Worked on enterprise proof-of-concepts involving AI, APIs, and scalable applications.
+\end{itemize}
+
+\vspace{4pt}
+\noindent\textbf{Graduate Engineer Trainee} \hfill Aug 2024 -- Jan 2025
+\begin{itemize}
+\item Developed Spring Boot and React applications with REST APIs.
+\item Strengthened backend, database, and system architecture fundamentals.
+\end{itemize}
+
+%------------------------------------------------------------
+\section*{AI-Assisted Software Engineering}
+\begin{itemize}
+\item Advanced user of Claude Code and GitHub Copilot for enterprise software development.
+\item Experienced with Agent Mode, Edit Mode, Planning Mode, approval workflows, and AI-driven development practices.
+\item Integrated reusable Claude Skills and AI Agents into engineering workflows.
+\item Built AI-assisted workflows for development, documentation, testing, Git operations, commits, and pull requests.
+\item Selected appropriate AI models based on reasoning complexity, speed, and context requirements.
+\item Experienced with MCP integrations, AI SDKs, RAG pipelines, and enterprise agent workflows.
+\end{itemize}
+
+%-------------------- Leadership --------------------
+\section*{Leadership \& Technical Contributions}
+\begin{itemize}
+\item Led Next.js architecture migration and established reusable project structure.
+\item Conducted internal knowledge sharing on Next.js, AI SDKs and AI development practices.
+\item Participated in client demos, solution presentations and architecture discussions.
+\item Contributed to coding standards, reusable architecture and developer productivity initiatives.
+\end{itemize}
+
+%-------------------- Personal Projects --------------------
+\section*{Personal Projects}
+
+\projecttitle{Harness --- AI Coding-Agent Platform}{--- Python, FastAPI, TypeScript, Next.js, PostgreSQL, Docker, LangGraph}
+
+Designed and independently built Harness, a full-stack AI coding-agent platform, to understand production agent systems end-to-end. The architecture cleanly separates a Python/FastAPI backend --- owning the agent's decide $\rightarrow$ act $\rightarrow$ observe loop, tool execution, and safety guardrails --- from a Next.js/TypeScript frontend, communicating over a streamed HTTP boundary.
+
+Iteratively extended the system from a single-tool chat prototype into a multi-surface platform: a provider-agnostic LLM abstraction (Anthropic/OpenAI) that keeps each provider's native tool-calling shape rather than a translated common format; a sandboxed tool layer for file, git, shell, and search operations; a visual workflow builder for composing and running multi-agent pipelines (LangGraph DAG engine plus a React Flow canvas, checkpointed to PostgreSQL via Drizzle ORM); Model Context Protocol support for external tool servers; and an AES-256-GCM encrypted credentials vault for third-party integrations.
+
+Currently building project-level isolation: the platform clones a user's GitHub repository into a managed workspace, indexes its files, and provisions a dedicated Docker container per project so agent-run shell commands (installs, builds, tests) execute in a reproducible sandbox --- with transparent, automatic fallback to host execution when Docker is unavailable.
+
+Built to learn by doing: several AI coding-agent harnesses already exist in the market, but building one from scratch --- rather than only using existing ones --- was the most direct way to understand how large AI platforms actually engineer these systems under the hood.
+
+\projectdivider
+
+\projecttitle{\href{https://task-tracker-gray-mu.vercel.app/}{Task Tracker} --- Full-Stack AI-Augmented Project Management Platform}{--- Next.js 16 (App Router), React 19, TypeScript, PostgreSQL (Neon, serverless), Drizzle ORM, better-auth, Anthropic Claude API, Tailwind CSS, dnd-kit, TanStack Table, Recharts}
+
+An end-to-end task and project management web application, similar in spirit to Trello/Linear, built to explore production-grade patterns in full-stack architecture, access control, and LLM-powered application design. Built first to solve a personal problem: struggling to track personal progress, in-flight work, and workload across projects, so an analytical dashboard and timeline view to see it all at a glance felt worth building --- reflecting a broader preference for building tools that solve a real problem for the user and the community rather than paying for an equivalent commercial product.
+
+Key contributions:
+\begin{itemize}
+\item Modeled a normalized data hierarchy (Section $\rightarrow$ Project $\rightarrow$ Column $\rightarrow$ Task $\rightarrow$ Checklist Item) in PostgreSQL via Drizzle ORM, with cascade/set-null delete rules, unique partial indexes, and safe migration history (4 schema migrations to date).
+\item Built a multi-tenant workspace model supporting both personal accounts and shared team spaces, with role-based membership, pending/accepted/declined invitations, and an in-app notification system.
+\item Designed a fine-grained permission engine scoping create/update/delete rights independently across projects, sections, columns, and tasks --- including per-project grants versus team-wide defaults.
+\item Engineered an embedded AI chat assistant on Anthropic's Claude API using structured tool-use (18+ tools across read/write operations), prompt caching to separate a stable system prompt from a volatile workspace snapshot, and explicit guardrails that keep the agent scoped to the app's domain and resistant to prompt injection from user-entered task content.
+\item Implemented authentication and session handling with better-auth, including cookie-based route protection middleware and secure email/password flows.
+\item Built interactive UI features: drag-and-drop Kanban boards (dnd-kit), a tag-filterable timeline view, an analytics dashboard (Recharts), batch operations for checklist items, and a custom shadcn/ui-based component/theming system.
+\end{itemize}
+
+\noindent\textit{Currently working on:} refining frontend polish and visual identity (custom WebGL background effects, redesigned login experience); consolidating and refactoring the codebase for long-term readability as the feature surface grows; and extending user-configurable preferences (task defaults, week-start day) with reusable UI patterns.
+
+\projectdivider
+
+\projecttitle{useApiGuard}{--- Next.js, TypeScript, React}
+\begin{itemize}
+\item Designed and published a reusable React hook to standardize API communication across applications.
+\item Simplified API handling by centralizing loading states, error handling, request lifecycle management, and response processing.
+\item Open-sourced the package with comprehensive documentation and real-world implementation examples.
+\item Published as an NPM package for reuse across multiple React and Next.js projects.
+\end{itemize}
+
+\projectdivider
+
+\projecttitle{Hospify -- Hospital Management System}{--- Spring Boot, React.js, MySQL}
+\begin{itemize}
+\item Developed a comprehensive hospital management platform supporting patients, doctors, hospitals, and administrative workflows.
+\item Built modules for patient registration, doctor management, appointment scheduling, and hospital administration.
+\item Implemented seamless appointment booking with doctor availability management and scheduling workflows.
+\item Designed medicine management and prescription tracking modules to streamline healthcare operations.
+\item Developed RESTful APIs using Spring Boot and integrated them with a responsive React.js frontend.
+\item Designed relational database schemas and managed source control using Git and GitHub.
+\end{itemize}
+
+%-------------------- Achievements --------------------
+\section*{Achievements}
+\begin{itemize}
+\item Emerging Star Award -- Synergech (2025)
+\end{itemize}
+
+%-------------------- Certifications --------------------
+\section*{Certifications \& Courses}
+\begin{itemize}
+\item Claude Code in Action -- Anthropic
+\item Building with the Claude API -- Anthropic
+\item Introduction to Model Context Protocol -- Anthropic
+\item Model Context Protocol: Advanced Topics -- Anthropic
+\item Introduction to Agent Skills
+\item Microsoft Certified: Azure AI Engineer Associate (AI-102) -- Preparing
+\end{itemize}
+
+\end{document}
