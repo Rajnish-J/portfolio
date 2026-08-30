@@ -728,6 +728,18 @@ h2 em {
   color: var(--muted);
   margin: 0;
 }
+.home-work-scroll {
+  max-height: 640px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  padding: 8px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
 .project-list {
   border-top: 1px solid var(--line);
 }
@@ -764,7 +776,7 @@ h2 em {
   font-weight: 500;
 }
 .project-main > p:not(.project-kind) {
-  color: var(--muted);
+  color: var(--foreground);
   max-width: 580px;
   margin: 14px 0 20px;
 }
@@ -788,6 +800,7 @@ h2 em {
   margin-bottom: 10px;
 }
 .project-impact > p:not(.eyebrow) {
+  color: var(--foreground);
   font-size: 13px;
   line-height: 1.5;
 }
@@ -907,6 +920,43 @@ h2 em {
 }
 .timeline-row:first-child > span {
   color: var(--green);
+}
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.credential-card {
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  box-shadow: 0 22px 46px color-mix(in srgb, var(--foreground) 9%, transparent);
+}
+.credential-card > .eyebrow {
+  margin-bottom: 18px;
+}
+.credential-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.credential-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.credential-list li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+.credential-meta {
+  color: var(--muted);
+  font-size: 13px;
 }
 .contact-section {
   border-top: 1px solid var(--line);
@@ -1038,10 +1088,14 @@ h2 em {
   .section-heading,
   .about-grid,
   .status-grid,
-  .contact-columns {
+  .contact-columns,
+  .credentials-grid {
     grid-template-columns: 1fr;
     display: grid;
     gap: 40px;
+  }
+  .credential-card {
+    padding: 24px;
   }
   .section-heading {
     margin-bottom: 45px;
@@ -1303,7 +1357,7 @@ h2 em {
 }
 .case-columns p:not(.eyebrow),
 .case-columns li {
-  color: var(--muted);
+  color: var(--foreground);
 }
 .case-columns ul {
   padding-left: 18px;
@@ -1320,7 +1374,7 @@ h2 em {
   margin-top: 65px;
 }
 .case-bottom p {
-  color: var(--muted);
+  color: var(--foreground);
   font-size: 13px;
   max-width: 370px;
   margin: 0;
@@ -1873,21 +1927,55 @@ h2 em {
 }
 .toolkit-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: min-content;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    'ai ai lang lang'
+    'ai ai back back'
+    'infra infra front db'
+    'arch arch arch arch';
   gap: 18px;
 }
+.toolkit-0 {
+  grid-area: lang;
+}
+.toolkit-1 {
+  grid-area: front;
+}
+.toolkit-2 {
+  grid-area: back;
+}
+.toolkit-3 {
+  grid-area: ai;
+}
 .toolkit-4 {
-  grid-column: span 2;
+  grid-area: infra;
+}
+.toolkit-5 {
+  grid-area: db;
+}
+.toolkit-6 {
+  grid-area: arch;
 }
 .toolkit-card {
+  position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   padding: 32px;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--paper);
   box-shadow: 0 22px 46px color-mix(in srgb, var(--foreground) 9%, transparent);
+}
+.toolkit-watermark {
+  position: absolute;
+  right: -22px;
+  bottom: -22px;
+  width: 120px;
+  height: 120px;
+  color: var(--green);
+  opacity: 0.07;
+  pointer-events: none;
 }
 .toolkit-icon {
   display: grid;
@@ -1900,13 +1988,87 @@ h2 em {
   color: var(--green);
 }
 .toolkit-card h3 {
+  position: relative;
   margin: 0 0 7px;
   font-size: 24px;
   letter-spacing: -0.05em;
 }
-.toolkit-card > p {
+.toolkit-card-header {
+  position: relative;
+}
+.toolkit-card-header > p {
   margin: 0 0 26px;
   color: var(--muted);
+}
+.tool-pills {
+  position: relative;
+}
+
+/* Hero cell — AI, the largest and most-used skill group */
+.toolkit-3 {
+  padding: 44px;
+  justify-content: center;
+}
+.toolkit-3 .toolkit-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 15px;
+}
+.toolkit-3 .toolkit-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.toolkit-3 h3 {
+  font-size: 32px;
+}
+.toolkit-3 .toolkit-watermark {
+  width: 240px;
+  height: 240px;
+  right: -40px;
+  bottom: -40px;
+}
+
+/* Small square cells — the two lightest groups */
+.toolkit-1,
+.toolkit-5 {
+  padding: 26px;
+  justify-content: center;
+}
+.toolkit-1 h3,
+.toolkit-5 h3 {
+  font-size: 19px;
+}
+.toolkit-1 .toolkit-card-header > p,
+.toolkit-5 .toolkit-card-header > p {
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+.toolkit-1 .toolkit-watermark,
+.toolkit-5 .toolkit-watermark {
+  width: 80px;
+  height: 80px;
+}
+
+/* Wide banner cell — Architecture, laid out horizontally */
+.toolkit-6 {
+  flex-direction: row;
+  align-items: center;
+  gap: 36px;
+}
+.toolkit-6 .toolkit-card-header {
+  flex: 0 0 300px;
+}
+.toolkit-6 .toolkit-card-header > p {
+  margin-bottom: 0;
+}
+.toolkit-6 .tool-pills {
+  flex: 1;
+}
+.toolkit-6 .toolkit-watermark {
+  right: 20px;
+  bottom: -40px;
+  width: 160px;
+  height: 160px;
 }
 .tool-pills {
   display: flex;
@@ -2241,7 +2403,7 @@ h2 em {
 }
 .project-detail-grid > div > p:not(.eyebrow),
 .project-detail-grid li {
-  color: var(--muted);
+  color: var(--foreground);
   font-size: 18px;
   line-height: 1.7;
 }
@@ -2418,11 +2580,11 @@ h2 em {
 @media (max-width: 800px) {
   .toolkit-grid {
     grid-template-columns: 1fr;
+    grid-template-areas: none;
   }
-  .toolkit-0,
-  .toolkit-4 {
-    grid-row: auto;
+  .toolkit-card {
     grid-column: auto;
+    grid-row: auto;
   }
   .toolkit-legend {
     gap: 16px;
@@ -2503,6 +2665,10 @@ h2 em {
   .project-impact {
     align-self: flex-start;
   }
+  .home-work-scroll {
+    max-height: 560px;
+    padding: 8px 16px;
+  }
   .status-grid {
     display: flex;
     flex-direction: column;
@@ -2525,9 +2691,24 @@ h2 em {
   .toolkit-card h3 {
     font-size: 20px;
   }
-  .toolkit-card > p {
+  .toolkit-card-header > p {
     margin-bottom: 16px;
     font-size: 14px;
+  }
+  .toolkit-6 {
+    flex-direction: column;
+  }
+  .toolkit-3,
+  .toolkit-1,
+  .toolkit-5,
+  .toolkit-6 {
+    justify-content: flex-start;
+  }
+  .toolkit-6 .toolkit-card-header {
+    flex: none;
+  }
+  .toolkit-watermark {
+    opacity: 0.05;
   }
   .tool-pills {
     gap: 8px;

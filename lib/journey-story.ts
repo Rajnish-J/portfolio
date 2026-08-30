@@ -74,7 +74,7 @@ const earlyJourney: JourneyStep[] = [
 
 export const journeyStory: JourneyStep[] = [
   ...earlyJourney,
-  ...journey.map((item) => ({
+  ...[...journey].reverse().map((item) => ({
     id: item.id,
     date: item.date,
     role: item.role,

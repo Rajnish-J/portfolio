@@ -8,7 +8,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Rajnish J',
   description:
-    'Portfolio of Rajnish J, an AI engineer building agentic systems, developer tools, and infrastructure workflows.',
+    'Portfolio of Rajnish J, a Software Engineer specializing in AI-powered enterprise platforms, developer productivity, infrastructure automation, and intelligent workflow orchestration.',
   generator: 'v0.app',
   icons: {
     icon: [

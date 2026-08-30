@@ -1,100 +1,277 @@
 export const projects = [
   {
-    slug: 'task-tracker',
+    slug: 'harness',
     category: 'personal',
     number: '00',
-    title: 'Task Tracker',
-    kind: 'Personal productivity application',
+    title: 'Harness — AI Coding-Agent Platform',
+    kind: 'Personal — AI coding-agent platform',
     summary:
-      'A focused task and project management application for planning work, tracking progress, and keeping daily execution visible.',
-    impact: 'A lightweight personal system for turning intent into consistent progress.',
-    stack: ['Next.js', 'React', 'TypeScript', 'Vercel'],
+      'A full-stack AI coding-agent platform built from scratch to understand production agent systems end-to-end — a provider-agnostic LLM core, sandboxed tools, and a visual multi-agent workflow builder.',
+    impact:
+      'A working multi-surface agent platform — chat, visual workflow builder, MCP tools, and a credentials vault — built solo to understand how production coding-agent systems are engineered.',
+    stack: ['Python', 'FastAPI', 'TypeScript', 'Next.js', 'PostgreSQL', 'Docker', 'LangGraph'],
     overview:
-      'Task Tracker is a personal productivity application designed around clarity: capture work quickly, organize it into meaningful projects, and keep progress visible without unnecessary ceremony.',
+      "Designed and independently built Harness to understand production agent systems end-to-end. A Python/FastAPI backend owns the agent's decide → act → observe loop, tool execution, and safety guardrails, communicating with a Next.js/TypeScript frontend over a streamed HTTP boundary. Built to learn by doing — several AI coding-agent harnesses already exist in the market, but building one from scratch was the most direct way to understand how large AI platforms engineer these systems under the hood.",
     contributions: [
-      'Designed the task and project flows around fast capture and focused execution.',
-      'Built responsive interfaces that work well on mobile and desktop.',
-      'Added clear states for priorities, progress, and completed work.',
-      'Deployed the application on Vercel for reliable access.',
+      "Built a provider-agnostic LLM abstraction (Anthropic/OpenAI) that keeps each provider's native tool-calling shape instead of a translated common format.",
+      'Built a sandboxed tool layer for file, git, shell, and search operations, and a visual workflow builder (LangGraph DAG engine + React Flow canvas) checkpointed to PostgreSQL via Drizzle ORM.',
+      'Added Model Context Protocol support for external tool servers and an AES-256-GCM encrypted credentials vault for third-party integrations.',
+      'Currently building project-level isolation: cloning a GitHub repo into a managed workspace and provisioning a per-project Docker container for reproducible agent-run shell commands, with automatic fallback to host execution.',
+    ],
+  },
+  {
+    slug: 'task-tracker',
+    category: 'personal',
+    number: '01',
+    title: 'Task Tracker',
+    kind: 'Personal — full-stack AI-augmented project management platform',
+    summary:
+      'A Trello/Linear-style task and project management app built to track personal progress and workload, with an embedded Claude-powered AI assistant that manages the workspace through natural language.',
+    impact:
+      'A production-grade personal system for turning intent into consistent progress — currently being extended with custom WebGL background effects, a redesigned login flow, and user-configurable preferences.',
+    stack: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'PostgreSQL (Neon)',
+      'Drizzle ORM',
+      'better-auth',
+      'Claude API',
+      'Tailwind CSS',
+    ],
+    overview:
+      'Built first to solve a personal problem — struggling to track personal progress, in-flight work, and workload across projects — Task Tracker explores production-grade patterns in full-stack architecture, access control, and LLM-powered application design. Modeled a normalized data hierarchy (Section → Project → Column → Task → Checklist Item) in PostgreSQL via Drizzle ORM, with cascade/set-null delete rules and safe migration history.',
+    contributions: [
+      'Built a multi-tenant workspace model supporting personal accounts and shared team spaces, with role-based membership and invitations.',
+      'Designed a fine-grained permission engine scoping create/update/delete rights independently across projects, sections, columns, and tasks.',
+      "Engineered an embedded AI chat assistant on Anthropic's Claude API using 18+ tool-use tools, prompt caching, and guardrails against prompt injection from task content.",
+      'Implemented authentication and session handling with better-auth, and built drag-and-drop Kanban boards (dnd-kit), a timeline view, and an analytics dashboard (Recharts).',
     ],
     liveUrl: 'https://task-tracker-gray-mu.vercel.app',
   },
   {
-    slug: 'infra0',
+    slug: 'useapiguard',
+    category: 'personal',
+    number: '02',
+    title: 'useApiGuard',
+    kind: 'Personal — open-source React hook',
+    summary:
+      'A reusable React hook that standardizes API communication, published as an open-source NPM package.',
+    impact:
+      'A reusable, documented package now available for any React/Next.js project needing standardized API handling.',
+    stack: ['Next.js', 'TypeScript', 'React'],
+    overview:
+      'Designed and published a reusable React hook to standardize API communication across applications, simplifying API handling by centralizing loading states, error handling, request lifecycle management, and response processing.',
+    contributions: [
+      'Designed a single hook API covering loading states, error handling, and response processing.',
+      'Open-sourced the package with documentation and real-world implementation examples.',
+      'Published as an NPM package for reuse across multiple React and Next.js projects.',
+    ],
+  },
+  {
+    slug: 'hospify',
+    category: 'personal',
+    number: '03',
+    title: 'Hospify — Hospital Management System',
+    kind: 'Personal — hospital management platform',
+    summary:
+      'A hospital management platform covering patient registration, doctor management, appointment scheduling, and administrative workflows.',
+    impact:
+      'A complete healthcare operations platform spanning patient care, scheduling, and administration.',
+    stack: ['Spring Boot', 'React.js', 'MySQL'],
+    overview:
+      'Developed a comprehensive hospital management platform supporting patients, doctors, hospitals, and administrative workflows, with RESTful APIs built in Spring Boot and a responsive React.js frontend.',
+    contributions: [
+      'Built modules for patient registration, doctor management, appointment scheduling, and hospital administration.',
+      'Implemented appointment booking with doctor availability management and scheduling workflows.',
+      'Designed medicine management and prescription-tracking modules to streamline healthcare operations.',
+      'Designed relational database schemas and managed source control using Git and GitHub.',
+    ],
+  },
+  {
+    slug: 'infragenie',
     category: 'professional',
     number: '04',
-    title: 'Infra0',
-    kind: 'Professional infrastructure platform',
+    title: 'InfraGenie',
+    kind: 'Office work — enterprise cloud governance platform',
     summary:
-      'An infrastructure automation platform helping teams provision, govern, and operate cloud environments with confidence.',
+      'A unified platform for repository provisioning, access governance, ticketing, and cloud cost oversight across Prod/Dev/QA — built for four distinct roles across the organization.',
     impact:
-      'Brings repeatable provisioning, validation, drift awareness, and governance into one workflow.',
-    stack: ['Next.js', 'FastAPI', 'Azure', 'OpenTofu', 'PostgreSQL'],
+      'Cut organizational cloud/billing spend by ~70%, reduced access-provisioning turnaround by ~80%, and automated CI/CD governance for all onboarded teams.',
+    stack: [
+      'Next.js',
+      'PostgreSQL',
+      'FastAPI',
+      'AI SDK',
+      'Claude Code',
+      'OpenTofu/Terraform',
+      'Azure',
+      'ServiceNow',
+    ],
     overview:
-      'Infra0 is professional work focused on making infrastructure operations more approachable, reviewable, and repeatable for enterprise teams.',
+      'Repository provisioning, access approvals, and cloud cost oversight were handled manually across the organization, slowing DevOps delivery and creating governance gaps. Designed a single platform unifying provisioning, access governance, ticketing, and cost control for four distinct roles — platform team, end users, management, and DevOps engineers.',
     contributions: [
-      'Built full-stack product experiences for infrastructure provisioning and governance.',
-      'Worked across Azure integrations, OpenTofu/Terraform workflows, and backend APIs.',
-      'Contributed to validation, drift detection, and Git-based operational workflows.',
-      'Shaped documentation, landing pages, and public product surfaces.',
+      'Built an in-house RBAC & ABAC engine and an access-package request/ticketing system.',
+      'Built a prompt-driven OpenTofu/Terraform code-generation engine letting DevOps engineers describe infrastructure in natural language and deploy it directly to Azure.',
+      'Integrated ServiceNow, environment-scoped workspaces (Prod/Dev/QA), Intune policy management, and per-resource-group cost dashboards.',
+    ],
+  },
+  {
+    slug: 'infra0',
+    category: 'professional',
+    number: '05',
+    title: 'infra0',
+    kind: 'Office work — public SaaS platform',
+    summary:
+      'A leaner public SaaS re-architecture of InfraGenie — chat-driven infrastructure provisioning and the same RBAC/ABAC model, rolled out in a phased public beta.',
+    impact:
+      'Delivered a functioning public beta with a clear feature-parity roadmap, extending platform reach beyond internal enterprise users.',
+    stack: ['Next.js', 'FastAPI', 'Azure', 'OpenTofu', 'PostgreSQL', 'RBAC/ABAC'],
+    overview:
+      'No public-facing, lightweight equivalent of InfraGenie existed for external users who needed simplified infrastructure provisioning without full enterprise overhead. Re-architected the provisioning workflow and access-control layer into a leaner public product, gating enterprise-specific capabilities behind the internal tier.',
+    contributions: [
+      'Re-architected the provisioning workflow and access-control layer into a leaner public-facing product.',
+      'Carried forward chat-driven project workflows and the RBAC/ABAC model, restricting enterprise-only features (e.g. ServiceNow integration, org-wide cost governance).',
+      'Iterated public feature parity release by release against a version-wise roadmap.',
     ],
     liveUrl: 'https://infra0.ai',
   },
   {
-    slug: 'infragenie-suite',
+    slug: 'infra-landing',
     category: 'professional',
-    number: '01',
-    title: 'InfraGenie Suite',
-    kind: 'Enterprise cloud governance',
+    number: '06',
+    title: 'Infra Landing Platform',
+    kind: 'Office work — marketing & go-to-market site',
     summary:
-      'A unified platform for repository provisioning, access governance, ticketing, cloud cost oversight, and automated infrastructure workflows.',
-    impact: 'Reduced cloud spend by approximately 50% and access turnaround by approximately 80%.',
-    stack: ['Next.js', 'FastAPI', 'PostgreSQL', 'Azure', 'OpenTofu'],
+      'The public landing site for infra0 — feature highlights, pricing tiers, and workflow walkthroughs built to convert visitors into signups.',
+    impact:
+      'Established the primary acquisition and marketing entry point for the public product launch.',
+    stack: ['Next.js', 'Tailwind CSS'],
     overview:
-      'InfraGenie brought scattered cloud operations into one governed workspace. I worked across product discovery, full-stack implementation, secure APIs, RBAC, provisioning workflows, and the developer-facing experience.',
+      'infra0 had no external-facing channel to communicate its features, pricing, or workflows to prospective users. Designed and developed a responsive landing website covering feature highlights, pricing tiers, and workflow walkthroughs.',
     contributions: [
-      'Designed modular workflow experiences for provisioning and approvals.',
-      'Built backend services and integrations around PostgreSQL, Azure, Terraform, and OpenTofu.',
-      'Introduced governance patterns that made access, cost, and deployment state easier to understand.',
-      'Collaborated across requirements, architecture, proof-of-concepts, and production improvements.',
+      'Designed and built a responsive landing site covering features, pricing, and workflow walkthroughs.',
+      'Produced supporting LinkedIn marketing content for go-to-market.',
+      'Produced a recorded product demo video for the public launch.',
     ],
   },
   {
-    slug: 'agentflow',
+    slug: 'infra-docs',
     category: 'professional',
-    number: '02',
-    title: 'AgentFlow',
-    kind: 'Agentic workflow platform',
+    number: '07',
+    title: 'Infra Documentation Platform',
+    kind: 'Office work — documentation & self-service portal',
     summary:
-      'A flexible foundation for composing intelligent agents, reusable skills, MCP tools, approvals, and human-in-the-loop workflows.',
-    impact: 'Turns complex operational workflows into composable, observable systems.',
-    stack: ['React', 'Python', 'LangGraph', 'MCP', 'AI SDK'],
+      'A self-service documentation portal for infra0 with search, multilingual access, and AI-assisted content generation.',
+    impact:
+      'Improved user self-service and onboarding, reducing inbound support load for the public product.',
+    stack: ['Next.js', 'Markdown', 'Full-text search'],
     overview:
-      'AgentFlow is an internal platform concept for making agent capabilities installable, orchestrated, and governed across web applications and developer tools.',
+      'Public users lacked a self-service resource to learn or troubleshoot the platform, increasing support dependency. Built a documentation portal supporting search, multilingual access, and AI-assisted documentation help.',
     contributions: [
-      'Mapped agent installation and execution into repeatable workflow primitives.',
-      'Worked on orchestration, tool access, approvals, and observability patterns.',
-      'Connected AI capabilities to practical engineering and enterprise business processes.',
-      'Explored reusable skills and MCP-powered integrations for extensible product surfaces.',
+      'Built a documentation portal with Markdown rendering and full-text search.',
+      'Added multilingual support for a global user base.',
+      'Integrated AI-assisted documentation generation to keep content current.',
+    ],
+  },
+  {
+    slug: 'claude-code-marketplace',
+    category: 'professional',
+    number: '08',
+    title: 'Claude Code Analytics & Marketplace Platform',
+    kind: 'Office work — AI adoption analytics & agent marketplace',
+    summary:
+      'A usage-analytics and governance layer for Claude Code, GitHub Copilot, and Codex adoption, plus an org-wide Skills & Agents Marketplace with a fork mechanism and version control.',
+    impact:
+      'Gave leadership real-time visibility into AI-tool adoption and developer productivity, enabling data-driven seat reallocation across 100% of onboarded teams.',
+    stack: ['Next.js', 'Python', 'PostgreSQL', 'Azure AI Foundry', 'Claude Code'],
+    overview:
+      'Leadership had no visibility into Claude Code, GitHub Copilot, and Codex seat usage or developer productivity, and teams had no centralized way to reuse AI skills/agents across the organization. Built an analytics and governance layer giving management usage insight while enabling org-wide, version-controlled agent/skill reuse.',
+    contributions: [
+      'Built a usage-upload and insights engine with live and historical dashboards.',
+      'Built a Skills & Agents Marketplace with a fork mechanism, version control, and org-wide RBAC.',
+      'Integrated Azure AI Foundry agent-registry and seat-allocation management for leadership.',
+    ],
+  },
+  {
+    slug: 'agent-workflow-orchestration',
+    category: 'professional',
+    number: '09',
+    title: 'Workflow Orchestration',
+    kind: 'Office work — no-code agent orchestration for business users',
+    summary:
+      'A no-code orchestration engine letting business users chain Azure AI Foundry agents and marketplace agents into repeatable, multi-step workflows.',
+    impact:
+      'Enabled business users to automate multi-step tasks end-to-end without engineering support.',
+    stack: ['Next.js', 'Azure AI Foundry', 'Python'],
+    overview:
+      'Business teams had no no-code way to chain Azure AI Foundry agents into repeatable, multi-step workflows. Built an orchestration engine letting non-developers create, pull from the marketplace, and run agent-based workflows.',
+    contributions: [
+      'Implemented a no-code workflow builder and execution engine connecting marketplace and Foundry agents.',
+      'Built monitoring and orchestration pipelines for multi-step agent workflows.',
+      'Extended the platform into agent evaluation and governance.',
+    ],
+  },
+  {
+    slug: 'vscode-agent-extension',
+    category: 'professional',
+    number: '10',
+    title: 'VS Code Extension',
+    kind: 'Office work — in-IDE agent orchestration',
+    summary:
+      'A VS Code extension bringing agent install/pull and workflow-driven orchestration directly into the developer SDLC.',
+    impact:
+      'Reduced developer context-switching and standardized AI-assisted automation directly inside the IDE.',
+    stack: ['VS Code Extension API', 'TypeScript', 'Claude Code'],
+    overview:
+      'Developers lacked an equivalent agent-orchestration capability embedded in their IDE for build–develop–deploy workflows. Delivered a VS Code extension enabling in-IDE creation and execution of AI-driven SDLC workflows.',
+    contributions: [
+      'Built agent install/pull and configurable workflow-driven code generation inside the IDE.',
+      'Connected orchestrator-triggered automation across the SDLC.',
+    ],
+  },
+  {
+    slug: 'autonomous-testing-platform',
+    category: 'professional',
+    number: '11',
+    title: 'Autonomous Testing Platform',
+    kind: 'Office work — AI-driven QA workspace',
+    summary:
+      'A collaborative Kanban workspace combining project/task management with autonomous, AI-driven UI and API test execution.',
+    impact:
+      'Consolidated test planning and execution into a single AI-assisted workspace, cutting manual test-authoring effort.',
+    stack: ['Playwright MCP', 'Postman MCP', 'Kanban'],
+    overview:
+      'QA work was split across manual task tracking and separate API-testing tools, with no collaborative, AI-assisted testing workspace. Built a unified workspace combining project/task management with autonomous, AI-driven test execution.',
+    contributions: [
+      'Developed collaborative Kanban-based workspaces for test planning.',
+      'Integrated Playwright MCP, Postman MCP, and AI chat agents for autonomous UI/API test authoring and execution.',
     ],
   },
   {
     slug: 'riskguard-ai',
     category: 'professional',
-    number: '03',
+    number: '12',
     title: 'RiskGuard AI',
-    kind: 'AI-assisted underwriting',
+    kind: 'Office work — AI-assisted underwriting platform (client project)',
     summary:
-      'A document intelligence workflow that extracts, evaluates, and routes underwriting signals for faster, more consistent decisions.',
-    impact: 'Connects RAG, structured extraction, and review workflows into one clear experience.',
-    stack: ['Azure AI', 'FastAPI', 'RAG', 'React', 'PostgreSQL'],
+      'A human-in-the-loop underwriting platform that automates document verification and contextual research while keeping underwriters in control of the final decision.',
+    impact:
+      'Reduced typical review time from up to 2 days to as little as ~15 minutes, with edge cases capped at ~1 hour — a time reduction of roughly 90–98%.',
+    stack: [
+      'Python (FastAPI)',
+      'React.js',
+      'PostgreSQL',
+      'Azure AI Foundry',
+      'Azure AI Search',
+      'Azure Content Understanding',
+    ],
     overview:
-      'RiskGuard explored how research and document intelligence could support underwriting teams without hiding the reasoning behind a recommendation.',
+      'Underwriters manually reviewed applicant documents and researched risk context before approving or denying insurance claims, taking anywhere from half a day to over two days per case. Built a human-in-the-loop system that automates document verification, contextual research, and decision support.',
     contributions: [
-      'Built React interfaces around underwriting tasks and operational review.',
-      'Integrated deep research and retrieval workflows for risk analysis.',
-      'Structured extracted data so reviewers could move from evidence to decision.',
-      'Focused on transparent, maintainable AI-assisted experiences.',
+      'Built a document-processing pipeline on Azure AI Search and Azure Content Understanding.',
+      'Integrated automated web research for supporting risk insights.',
+      'Developed a React-based workspace with multi-document project versioning for underwriters.',
     ],
   },
 ]
@@ -104,7 +281,7 @@ export type Project = (typeof projects)[number]
 export const journey = [
   {
     id: 'associate',
-    date: 'June 2026 — now',
+    date: 'June 2026 — Present',
     role: 'Associate Software Engineer',
     company: 'Synergech Technologies',
     side: 'left',
@@ -113,60 +290,66 @@ export const journey = [
       'Enhanced the Synfra SaaS platform across cloud governance, infrastructure automation, public applications, landing pages, and documentation portals.',
       'Built full-stack systems using Next.js, React, FastAPI, PostgreSQL, Azure AI, and OpenTofu/Terraform.',
       'Developed an Enterprise AI Platform with account management, usage analytics, executive dashboards, and a Skills & Agents Marketplace.',
-      'Created agentic workflow foundations for web applications and VS Code extensions.',
+      'Led the Next.js architecture migration and conducts internal knowledge-sharing on AI-assisted development practices across teams.',
     ],
   },
   {
     id: 'trainee',
-    date: 'May 2025 — May 2026',
-    role: 'Graduate Engineering Trainee',
+    date: 'May 2025 — June 2026',
+    role: 'Software Engineer',
     company: 'Synergech Technologies',
     side: 'right',
-    summary: 'AI-powered infrastructure, enterprise applications, and scalable backend systems.',
+    summary:
+      'Enterprise cloud governance, agentic workflow platforms, and AI-assisted underwriting — from InfraGenie to RiskGuard AI.',
     details: [
-      'Built an AI-driven infrastructure provisioning platform that reduced provisioning time by 90–95%.',
-      'Implemented automated validation, drift detection, and Git-based workflows with a 95% deployment success rate.',
-      'Contributed to document summarization, intelligent extraction, autonomous testing, and insurance underwriting products.',
-      'Designed clean APIs, RBAC, caching strategies, and microservices patterns.',
+      'Built InfraGenie, an enterprise cloud governance platform with an in-house RBAC/ABAC engine, cutting cloud spend ~70% and access turnaround ~80%.',
+      'Re-architected InfraGenie into infra0, a public SaaS product, with a landing site and documentation platform for go-to-market.',
+      'Built the Claude Code Analytics & Marketplace platform, a business-facing agent workflow orchestrator, and a VS Code extension for in-IDE agent workflows.',
+      'Delivered RiskGuard AI, a document-driven underwriting platform that cut review time by roughly 90–98%.',
     ],
   },
   {
     id: 'on-job',
     date: 'February 2025 — April 2025',
-    role: 'On Job Trainee',
+    role: 'Software Engineer Intern',
     company: 'Synergech Technologies',
     side: 'left',
-    summary: 'Automation and intelligent decision support for enterprise workflows.',
+    summary:
+      'Built AI-assisted document processing, workflow automation, and backend integrations for enterprise proof-of-concepts.',
     details: [
-      'Contributed to intelligent document extraction and chatbot systems.',
-      'Supported an autonomous testing platform that validated UI behavior across environments.',
-      'Worked on cloud infrastructure setup, automation workflows, and reliability planning.',
+      'Built AI-assisted document processing, workflow automation, and backend integrations.',
+      'Worked on enterprise proof-of-concepts involving AI, APIs, and scalable applications.',
     ],
   },
   {
     id: 'intern',
     date: 'August 2024 — January 2025',
-    role: 'Intern',
+    role: 'Graduate Engineer Trainee',
     company: 'Synergech Technologies',
     side: 'right',
-    summary: 'Full-stack foundations, backend services, and clean architecture.',
+    summary:
+      'Developed Spring Boot and React applications with REST APIs, strengthening backend, database, and system architecture fundamentals.',
     details: [
-      'Built and deployed full-stack applications with backend services, frontend interfaces, and database integrations.',
-      'Applied loosely coupled systems and MVC patterns to real-world projects.',
-      'Strengthened foundations in backend development, frontend performance, and clean coding practices.',
+      'Developed Spring Boot and React applications with REST APIs.',
+      'Strengthened backend, database, and system architecture fundamentals.',
     ],
   },
+]
+
+export const achievements = [
+  { title: 'Emerging Star Award', org: 'Synergech Technologies', date: '2025' },
+]
+
+export const certifications = [
+  { title: 'Claude Code in Action', issuer: 'Anthropic' },
+  { title: 'Building with the Claude API', issuer: 'Anthropic' },
+  { title: 'Introduction to Model Context Protocol', issuer: 'Anthropic' },
+  { title: 'Model Context Protocol: Advanced Topics', issuer: 'Anthropic' },
+  { title: 'Introduction to Agent Skills', issuer: 'Anthropic' },
   {
-    id: 'education',
-    date: '2020 — 2024',
-    role: 'Bachelor of Engineering',
-    company: 'Panimalar Engineering College',
-    side: 'left',
-    summary: 'Electrical, Electronics and Communications Engineering · CGPA 8.78',
-    details: [
-      'Studied engineering fundamentals while building a strong foundation in software development.',
-      'Developed an interest in backend systems, application architecture, and practical product engineering.',
-    ],
+    title: 'Microsoft Certified: Azure AI Engineer Associate (AI-102)',
+    issuer: 'Microsoft',
+    status: 'In progress',
   },
 ]
 
