@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import type { posts as postsType } from '@/lib/portfolio-data'
 import { postBodies, getReadingStats } from '@/lib/portfolio-data'
+import { TracingBeam } from '@/components/ui/tracing-beam'
 
 type Post = (typeof postsType)[number]
 
@@ -85,39 +86,41 @@ export function BlogFilter({ posts }: { posts: Post[] }) {
         </section>
       )}
 
-      {years.map((year) => {
-        const yearPosts = visible.filter((post) => yearOf(post.date) === year)
-        return (
-          <section className="section-wrap posts-list" key={year}>
-            <h2 className="blog-year-heading">
-              {year} <span>— {yearPosts.length} posts this year</span>
-            </h2>
-            {yearPosts.map((post) => (
-              <Link className="post-row" href={`/blog/${post.slug}`} key={post.slug}>
-                {post.coverImage && (
-                  <img className="post-row-image" src={post.coverImage} alt={post.title} />
-                )}
-                <span className="post-number">{shortDate(post.date)}</span>
-                <div>
-                  <h2>{post.title}</h2>
-                  <p>{post.excerpt}</p>
-                </div>
-                <div className="post-row-meta">
-                  <div className="post-row-tags">
-                    {post.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
+      <TracingBeam className="max-w-none">
+        {years.map((year) => {
+          const yearPosts = visible.filter((post) => yearOf(post.date) === year)
+          return (
+            <section className="section-wrap posts-list" key={year}>
+              <h2 className="blog-year-heading">
+                {year} <span>— {yearPosts.length} posts this year</span>
+              </h2>
+              {yearPosts.map((post) => (
+                <Link className="post-row" href={`/blog/${post.slug}`} key={post.slug}>
+                  {post.coverImage && (
+                    <img className="post-row-image" src={post.coverImage} alt={post.title} />
+                  )}
+                  <span className="post-number">{shortDate(post.date)}</span>
+                  <div>
+                    <h2>{post.title}</h2>
+                    <p>{post.excerpt}</p>
                   </div>
-                  <span className="post-row-time">
-                    {getReadingStats(postBodies[post.slug]).minutes} min
-                  </span>
-                </div>
-                <ArrowUpRight size={19} />
-              </Link>
-            ))}
-          </section>
-        )
-      })}
+                  <div className="post-row-meta">
+                    <div className="post-row-tags">
+                      {post.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                    <span className="post-row-time">
+                      {getReadingStats(postBodies[post.slug]).minutes} min
+                    </span>
+                  </div>
+                  <ArrowUpRight size={19} />
+                </Link>
+              ))}
+            </section>
+          )
+        })}
+      </TracingBeam>
     </>
   )
 }
