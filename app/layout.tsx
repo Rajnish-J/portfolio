@@ -1,6 +1,8 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { ThemeBootstrap } from '@/components/theme-bootstrap'
+import { HelloBootstrap } from '@/components/hello-bootstrap'
+import { HelloIntro } from '@/components/hello-intro'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { DotGrid } from '@/components/dot-grid'
 import './globals.css'
@@ -46,6 +48,8 @@ export default function RootLayout({
     <html lang="en" className="bg-background" suppressHydrationWarning>
       <body className="antialiased">
         <ThemeBootstrap />
+        <HelloBootstrap />
+        <HelloIntro />
         <DotGrid />
         {children}
         <ScrollToTop />

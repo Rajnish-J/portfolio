@@ -51,7 +51,8 @@ function toDark(hex: string) {
     let h = hex.slice(1)
     if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2]
     const v = parseInt(h.slice(0, 2), 16)
-    const s = Math.max(8, Math.min(240, 252 - v))
+    // Floor of 34 keeps the deepest greys flush with --stage rather than sinking to black.
+    const s = Math.max(34, Math.min(240, 252 - v))
       .toString(16)
       .padStart(2, '0')
     out = `#${s}${s}${s}`
