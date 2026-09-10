@@ -16,7 +16,7 @@
   --scrim: rgba(15, 15, 14, 0.5);
   --stage: #f2f0ea;
   --radius: 0rem;
-  --dot-grid-color: rgba(8, 8, 8, 0.14);
+  --glyph-matrix-color: rgba(8, 8, 8, 0.42);
   color-scheme: light;
 }
 .dark {
@@ -32,7 +32,7 @@
   --on-ink-soft: #f5f4ee;
   --scrim: rgba(0, 0, 0, 0.6);
   --stage: #212220;
-  --dot-grid-color: rgba(245, 244, 238, 0.16);
+  --glyph-matrix-color: rgba(245, 244, 238, 0.3);
   color-scheme: dark;
 }
 @theme inline {
@@ -558,13 +558,13 @@ a {
   padding-top: 72px;
   padding-bottom: 72px;
 }
-.dot-grid {
+.glyph-matrix {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
 }
-.dot-grid__canvas {
+.glyph-matrix__canvas {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -2635,8 +2635,9 @@ h2 em {
     font-size: clamp(45px, 13vw, 64px);
   }
   .hero-portrait {
-    width: 72%;
-    margin-left: 0;
+    width: 78%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .hero-meta {
     margin-top: 24px;

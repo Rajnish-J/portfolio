@@ -4,7 +4,7 @@ import { ThemeBootstrap } from '@/components/theme-bootstrap'
 import { HelloBootstrap } from '@/components/hello-bootstrap'
 import { HelloIntro } from '@/components/hello-intro'
 import { ScrollToTop } from '@/components/scroll-to-top'
-import { DotGrid } from '@/components/dot-grid'
+import { GlyphMatrix } from '@/components/glyph-matrix'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ export default function RootLayout({
         <ThemeBootstrap />
         <HelloBootstrap />
         <HelloIntro />
-        <DotGrid />
+        <GlyphMatrix />
         {children}
         <ScrollToTop />
         {process.env.NODE_ENV === 'production' && <Analytics />}
